@@ -16,13 +16,23 @@ console.log('Featured Puppy:', featuredPup);
 
   return(
      <div style ={{ textAlign: 'center', marginTop: '50px' }}>
-      <p> selctect Puppy ID: {featPupId}</p>
+      <div style={{ border: '1px solid black', padding: '5px', marginBottom: '10px' }}></div>
+      <p> select Puppy ID below: {featPupId}</p>
       <div className="App"></div>
       {
         puppies.map((puppy) => (
           <p
           key={puppy.id}
-          onClick={() => handleClick(puppy.id)}>
+          onClick={() => handleClick(puppy.id)}
+          style={{
+            cursor: 'pointer',
+            color: featPupId === puppy.id ? 'red' : 'black',
+            border: '1px solid black', 
+            padding: '5px', 
+            margin: '5px', 
+            display: 'inline-block', 
+          }}
+          >
             {puppy.name}
             </p>
         ))}
@@ -33,7 +43,8 @@ console.log('Featured Puppy:', featuredPup);
           <ul>
             <li>Age: {featuredPup.age}</li>
             <li>Email: {featuredPup.email}</li>
-            {/* Add more details based on your puppy object properties */}
+            <li>isCute: {featuredPup.isCute ? 'True' : 'False'}</li>
+          
           </ul>
         </div>
       )}
